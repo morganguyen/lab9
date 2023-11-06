@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Paragraph</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .colorful-paragraph {
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="colorInput">Enter RGB Values:</label>
+        <input type="text" id="colorInput" placeholder="e.g., 255, 0, 0">
+        <label for="borderWidthInput">Border Width:</label>
+        <input type="range" id="borderWidthInput" min="0" max="20" step="1" value="2">
+        <p class="colorful-paragraph" id="outputParagraph">Some dummy text</p>
+    </div>
+
+    <script>
+        const colorInput = document.getElementById('colorInput');
+        const borderWidthInput = document.getElementById('borderWidthInput');
+        const outputParagraph = document.getElementById('outputParagraph');
+
+        function updateParagraphColorAndBorder() {
+            const rgbValues = colorInput.value.split(',').map(value => parseInt(value.trim()));
+            const borderWidth = borderWidthInput.value + 'px';
+
+            if (rgbValues.length === 3 && rgbValues.every(value => value >= 0 && value <= 255)) {
+                const color = `rgb(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]})`;
+                outputParagraph.style.color = color;
+                outputParagraph.style.borderColor = color;
+                outputParagraph.style.borderWidth = borderWidth;
+            }
+        }
+
+        colorInput.addEventListener('input', updateParagraphColorAndBorder);
+        borderWidthInput.addEventListener('input', updateParagraphColorAndBorder);
+    </script>
+</body>
+
+</html>

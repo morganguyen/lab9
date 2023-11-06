@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reload page to try again.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reload page to try again.</h1>
+    <pre>
+        <script>
+		// Function to validate passwords
+		function pass_match() {
+    			// Get passwords from user input
+    			var pass_one = prompt("Enter your password:");
+    			var pass_two = prompt("Enter your password again to verify:");
+
+    			// Check if passwords are at least eight characters long and are the same
+    			if (pass_one.length >= 8 && pass_one === pass_two) {
+        			alert("Passwords matched!");
+    			} else {
+        			alert("Passwords do not match or are not at least eight characters long. Please try again.");
+    			}
+		}
+
+		// Call the function to validate passwords
+		pass_match();
+	</script>
+    </pre>
+</body>
+</html>

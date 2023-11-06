@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+    <form method="post">
+        Enter a num: <input type="text" name="num">
+        <input type="submit" value="Generate Table">
+    </form>
+    <br>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // get num
+        $num = $_POST["num"];
+
+        // check if positive
+        if (is_numeric($num) && $num > 0 && $num == round($num)) {
+            echo "<h2>Multiplication Table for $num</h2>";
+            echo "<table border='1'>";
+            // show rows and columns
+            echo "<tr><th></th>";
+            for ($i = 1; $i <= $num; $i++) {
+                echo "<th>$i</th>";
+            }
+            echo "</tr>";
+
+            // multiplication table
+            for ($i = 1; $i <= $num; $i++) {
+                echo "<tr><th>$i</th>";
+                for ($j = 1; $j <= $num; $j++) {
+                    echo "<td>" . ($i * $j) . "</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else {
+            // if not positive, display message
+            echo "<p>Please enter a valid positive integer.</p>";
+        }
+    }
+    ?>
+</body>
+</html>

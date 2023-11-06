@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.profile-picture {
+    border-radius: 5%;
+    margin-right: 5px;
+}
+
+.about-me, .projects, .video {
+    margin-bottom: 5px;
+}
+
+iframe {
+    width: 100%;
+}
+
+/* Add more styles as needed */
